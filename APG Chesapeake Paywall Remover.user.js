@@ -41,9 +41,14 @@
         }
     }
 
+    function overrideObjects() {
+        // Override the TNCMS object to prevent subscription modal popups
+        TNCMS = null;
+        __tnt = null;
+    }
+
     showSubscriberOnly();
     showAssetContent();
 
-    // Override the TNCMS object to prevent subscription modal popups
-    TNCMS = null;
+    setTimeout(overrideObjects, 1000);
 })();
