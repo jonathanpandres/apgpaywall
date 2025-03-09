@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         APG Chesapeake Paywall Remover
 // @namespace    http://tampermonkey.net/
-// @version      1.0.0
+// @version      1.0.1
 // @description  APG Chesapeake Paywall Remover
 // @author       Jonathan Andres
 // @match        http*://*.stardem.com/*
@@ -41,10 +41,13 @@
         }
     }
 
+    // Override the TNCMS object to prevent subscription modal popups
+    var TNCMS = null;
+    var __tnt = null;
+
+    var aom = document.getElementById('access-offers-modal');
+    aom.remove();
+
     showSubscriberOnly();
     showAssetContent();
-
-    // Override the TNCMS object to prevent subscription modal popups
-    TNCMS = null;
-    __tnt = null;
 })();
